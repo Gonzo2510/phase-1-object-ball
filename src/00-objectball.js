@@ -115,4 +115,16 @@ function gameObject() {
     }
 };
 
-console.log(gameObject());
+function numPointsScored(name) {
+  let game = gameObject();
+  for (let team in game) {
+      for (let player in team.players) {
+          if (player === name) {
+              return player.points
+          } else return "Player not found"
+      };      
+  }
+
+};
+
+console.log(numPointsScored("Reggie Evans"));
