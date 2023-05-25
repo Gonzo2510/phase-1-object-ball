@@ -1,5 +1,5 @@
 function gameObject() {
-    const game = {
+    return {
         'home' : {
             'teamName' : 'Brooklyn Nets',
             'colors' : ['Black', 'White'],
@@ -114,3 +114,5 @@ function gameObject() {
         }
     }
 };
+
+console.log(gameObject());
