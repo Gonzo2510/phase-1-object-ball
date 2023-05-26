@@ -115,16 +115,43 @@ function gameObject() {
     }
 };
 
-function numPointsScored(name) {
+function numPointsScored(playerName) {
   let game = gameObject();
   for (let team in game) {
-      for (let player in team.players) {
-          if (player === name) {
-              return player.points
-          } else return "Player not found"
-      };      
+    //console.log(team)
+      let players = game[team].players
+        //console.log(players)
+          if (playerName in players) {
+              return players[playerName].points
+          } else continue
   }
-
 };
 
-console.log(numPointsScored("Reggie Evans"));
+function shoeSize (playerName) {
+  let game = gameObject();
+  for (let team in game) {
+    //console.log(team)
+      let players = game[team].players
+        //console.log(players)
+          if (playerName in players) {
+              return players[playerName].shoe
+          } else continue
+  }
+};
+
+function teamColors(teamName) {
+  let game = gameObject();
+  for (let team in game) {
+    //console.log(team)
+    let teams = game[team]["teamName"]
+    //console.log(teams)
+    if (teamName === teams) {
+      return game[team]["colors"]
+    } else continue
+  }
+};
+
+
+//console.log(numPointsScored("Brendan Haywood"));
+//console.log(shoeSize("Brendan Haywood"));
+//console.log(teamColors("Charlotte Hornets"));
