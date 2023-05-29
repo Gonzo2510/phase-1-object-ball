@@ -151,7 +151,39 @@ function teamColors(teamName) {
   }
 };
 
+function teamNames(teamName){
+  let game = gameObject();
+  for (let team in game) {
+    let teams = game[team]["teamName"]
+    if (teamName === teams) {
+      let playerNames = []
+      for (let name in game[team]["players"])
+        playerNames.push(name);
+      return playerNames
+    } else continue
+  }
+};
 
+function playerNumbers(teamName){
+  let game = gameObject();
+  for (let team in game) {
+    let teams = game[team]["teamName"]
+    if (teamName === teams) {
+      let plNums = []
+      for (let player in game[team]["players"])
+        let player
+        for (let num in player[number])
+          console.log(player[number])
+        //console.log(game[team]["players"])
+        plNums.push();
+      //return plNums
+    } else continue
+  }
+};
+
+
+console.log(playerNumbers("Charlotte Hornets"));
+//console.log(teamNames("Charlotte Hornets"));
 //console.log(numPointsScored("Brendan Haywood"));
 //console.log(shoeSize("Brendan Haywood"));
 //console.log(teamColors("Charlotte Hornets"));
