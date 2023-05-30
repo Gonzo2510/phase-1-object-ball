@@ -164,25 +164,52 @@ function teamNames(teamName){
   }
 };
 
-function playerNumbers(teamName){
-  let game = gameObject();
-  for (let team in game) {
-    let teams = game[team]["teamName"]
-    if (teamName === teams) {
-      let plNums = []
-      for (let player in game[team]["players"])
-        let player
-        for (let num in player[number])
-          console.log(player[number])
-        //console.log(game[team]["players"])
-        plNums.push();
-      //return plNums
-    } else continue
+function playerNumbers(team) {
+  const game = gameObject();
+  const teamNumbers = []
+  for (const gameKey in game) {
+    if (game[gameKey].teamName === team) {
+      const data = game[gameKey].players;
+      for (const player in data) {
+        teamNumbers.push(data[player].number);
+      }
+    }
+  }
+  return teamNumbers;
+}
+
+function playerStats(playerName) {
+  const game = gameObject();
+  for (const gameKey in game) {
+    const data = game[gameKey].players;
+    for (const player in data) {
+      if (player === playerName) {
+        return data[playerName]
+      }
+    }
   }
 };
 
+function bigShoeRebounds() {
+  const game = gameObject();
+  let largestShoe = 0
+  let maxRebounds = 0
+  for (const gameKey in game) {
+    const data = game[gameKey].players;
+    for (const player in data) {
+      if (data[player].shoe > largestShoe)
+        largestShoe = data[player].shoe
+        maxRebounds = data[player].rebounds
+    }
+  }
+  return(maxRebounds)
+};
 
-console.log(playerNumbers("Charlotte Hornets"));
+
+
+//console.log(bigShoeRebounds())
+//console.log(playerStats('Mason Plumlee'))
+//console.log(playerNumbers("Charlotte Hornets"));
 //console.log(teamNames("Charlotte Hornets"));
 //console.log(numPointsScored("Brendan Haywood"));
 //console.log(shoeSize("Brendan Haywood"));
